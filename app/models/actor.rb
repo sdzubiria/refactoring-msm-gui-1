@@ -11,4 +11,9 @@
 #  updated_at :datetime         not null
 #
 class Actor < ApplicationRecord
+  has_many :characters
+
+  def filmography
+    self.characters.includes(:movie)
+  end
 end
